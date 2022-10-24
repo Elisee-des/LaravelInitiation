@@ -35,4 +35,9 @@ class PostController extends Controller
             'article' => $article
         ]);
     }
+
+    public function contact()
+    {
+        return view('contact');
+    }
 }
