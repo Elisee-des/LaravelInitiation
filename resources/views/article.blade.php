@@ -3,6 +3,7 @@
 @section('content')
 <br>
 <h1>{{ $article->content }}</h1>
+<span>{{ $article->image ? $article->image->path : "Pas d'image"}}</span>
 
 <hr><br>
 
