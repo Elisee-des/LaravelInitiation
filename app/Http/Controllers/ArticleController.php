@@ -5,22 +5,42 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::orderBy('title')->get();
 
         return view('articles',[
             'articles' => $articles
         ]);
     }
 
+    public function create()
+    {
+        return view('form');
+    }
+
+    public function store(Request $request)
+    {
+        // $article = new Article();
+        // $article->title = $request->title;
+        // $article->content = $request->content;
+        // $article->save();
+
+        Article::create([
+            'title' => $request->title,
+            'content' => $request->content
+        ]);
+
+        dd('Article creer');
+    }
+
     public function show($id)
     {
         $article = Article::findOrFail($id);
         // $article = Article::where('title', 'Magni neque perferendis quo sint.')->first();
-        dd($article);
+        // dd($article);
 
         // $articles = [
         //     1 => "Mon titre 1",

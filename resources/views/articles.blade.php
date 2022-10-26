@@ -6,11 +6,13 @@
     
 @foreach ($articles as $article)
 
-<h2><a href="{{ route('articles.show', ['id' => $article->id]) }}">{{ $article->title }}</a></h2>
+<ul>
+    <li><a href="{{ route('articles.show', ['id' => $article->id]) }}">{{ $article->title }}</a></li>
+</ul>
 
 @endforeach
-    <span>Aucun Post en base de donnee</span>
 @else
+<span>Aucun Post en base de donnee</span>
 
 @endif
 
