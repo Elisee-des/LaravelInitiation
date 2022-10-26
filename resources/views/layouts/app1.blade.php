@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,14 @@
     <title>Mon site</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
+
 <body>
-    @include('partials.navbar')
-    @yield('content')
+    <div class="container">
+        @include('partials.navbar')
+        @yield('content')
+    </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
+
 </html>
