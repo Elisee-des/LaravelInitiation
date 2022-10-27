@@ -28,6 +28,11 @@ class Article extends Model
         return $this->hasOne(Image::class);
     }
 
+    public function imageArtist()
+    {
+        return $this->hasOneThrough(Artist::class, Image::class);
+    }
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class);

@@ -13,10 +13,13 @@
 <span>Aucun commentaire</span>
 @endforelse
 
-<hr><br>
+<hr>
 @forelse ($article->tags as $tag)
 <span>{{ $tag->name }}</span>
 @empty
 <span>Aucun tag pour cet article</span>
 @endforelse
+<hr>
+
+<span>Nom de l'artiste de l'image : {{ $article->imageArtist->name }}</span>
 @endsection
