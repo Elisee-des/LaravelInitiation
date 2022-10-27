@@ -16,4 +16,11 @@
 
 @endif
 
+<h1>Liste des Videos des Articles</h1>
+
+@forelse ($video->comments as $comment)
+<div>{{ $comment->content }} cree le {{ $comment->created_at->format('d/m/y') }}</div>
+@empty
+<span>Aucun commentaire</span>
+@endforelse
 @endsection

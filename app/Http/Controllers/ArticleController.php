@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Comment;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -10,9 +12,11 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::orderBy('title')->get();
+        $video = Video::find(1);
 
         return view('articles',[
-            'articles' => $articles
+            'articles' => $articles,
+            'video' => $video
         ]);
     }
 
@@ -40,15 +44,6 @@ class ArticleController extends Controller
     {
         $article = Article::findOrFail($id);
         // $article = Article::where('title', 'Magni neque perferendis quo sint.')->first();
-        // dd($article);
-
-        // $articles = [
-        //     1 => "Mon titre 1",
-        //     2 => "Mon titre 2",
-        //     3 => "Mon titre 3",
-        //     4 => "Mon titre 4",
-        //     5 => "Mon titre 5",
-        // ];
 
         // $article = $articles[$id] ?? 'Pas de titre';
 
@@ -60,5 +55,22 @@ class ArticleController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+
+    public function registration()
+    {
+        $article = Article::find(11);
+        $video = Video::find(1);
+
+        $comment1 = new Comment(['content' => "mon commentaire premier pour l'article" ]);
+        $comment2 = new Comment(['content' => "mon commentaire deuxieme pour l'article" ]);
+        $comment3 = new Comment(['content' => "mon commentaire troisieme pour l'article" ]);
+
+        $article->comments()->saveMany([
+            $comment1,
+            $comment2
+        ]);
+
+        $video->comments()->save($comment3);
     }
 }

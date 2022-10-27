@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ArticleController::class, 'index'])->name('welcome');
 Route::get('/article/create', [ArticleController::class, 'create'])->name('articles.create');
 Route::post('/article/create', [ArticleController::class, 'store'])->name('articles.store');
+Route::get('/create-polymorphisme-registration', [ArticleController::class, 'registration']);
 Route::get('/article/{id}', [ArticleController::class, 'show'])->name('articles.show');
 Route::get('/contactez-nous', [ArticleController::class, 'contact'])->name('contact');
 

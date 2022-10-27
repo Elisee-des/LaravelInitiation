@@ -8,7 +8,7 @@
 <hr><br>
 
 @forelse ($article->comments as $comment)
-<div>{{ $comment->content }} cree le {{ $comment->created_at->format('d m y') }}</div>
+<div>{{ $comment->content }} cree le {{ $comment->created_at->format('d/m/y') }}</div>
 @empty
 <span>Aucun commentaire</span>
 @endforelse
