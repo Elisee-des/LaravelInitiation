@@ -22,4 +22,9 @@
 <hr>
 
 <span>Nom de l'artiste de l'image : {{ $article->imageArtist->name }}</span>
+
+<hr>
+
+{{-- <span>Commentaire le plus recent: {{ $article->latestComment->content }}</span> --}}
+{{-- <span>Commentaire le plus ancien: {{ $article->oldestComment->content }}</span> --}}
 @endsection

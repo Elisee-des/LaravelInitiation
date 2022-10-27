@@ -6,6 +6,7 @@ use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use PhpParser\Node\Expr\FuncCall;
 
 class Article extends Model
 {
@@ -36,5 +37,15 @@ class Article extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function latestComment()
+    {
+        return $this->hasOne(Comment::class)->latestOfMany();
+    }
+
+    public function oldestComment()
+    {
+        return $this->hasOne(Comment::class)->oldestOfMany();
     }
 }
